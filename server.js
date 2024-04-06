@@ -5,6 +5,8 @@ const userModel = require('./models/userModel')
 const cors = require('cors')
 require('dotenv').config();
 const db = require('./db')
+const PORT = process.env.PORT || 4000
+
 
 app.use(express.json());
 app.use(cors())
@@ -12,7 +14,7 @@ app.use(cors())
 
 app.get('/',(req,res)=>{
     res.send({
-        message:"login successfully",
+        message:"home page",
         ft:'congrats',
         lt:'success'
     })
@@ -39,8 +41,8 @@ app.post('/login',async(req,res)=>{
         message:'log in successfully',
         ft:'congrats',
         lt:'success'
-     })
+     }) 
 })
-app.listen(4000,()=>{
-    console.log('server is now started on port 4000');
+app.listen(PORT,()=>{
+    console.log('server is now started on port ', `${PORT}`);
 })
