@@ -23,7 +23,7 @@ app.post('/login',async(req,res)=>{
     const {username,password} = req.body;
     if(!username){
         return res.send({
-            message:'please enter email',
+            message:'please enter username',
             ft:'opps!',
             lt:'info'
         })
@@ -38,7 +38,7 @@ app.post('/login',async(req,res)=>{
      const user = await userModel.create({username:username,password:password});
      console.log(user,'user');
      res.send({
-        message:'log in successfully',
+        message:'Invalid username or password',
         ft:'congrats',
         lt:'success'
      }) 
